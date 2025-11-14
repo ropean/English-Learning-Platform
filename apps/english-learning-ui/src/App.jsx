@@ -46,7 +46,7 @@ function App() {
           <p>
             🎓 English Learning Platform - 让英语学习更有趣
             <br />
-            © 2024 - 使用 React + Vite + DaisyUI 构建
+            © 2025 - 使用 React + Vite + DaisyUI 构建
           </p>
         </aside>
       </footer>

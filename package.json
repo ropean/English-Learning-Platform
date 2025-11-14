@@ -1,0 +1,45 @@
+{
+  "name": "english-learning-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive English Learning Platform with gamification features",
+  "packageManager": "pnpm@10.22.0",
+  "scripts": {
+    "dev": "pnpm --filter english-learning-ui dev",
+    "build": "pnpm --filter english-learning-ui build",
+    "preview": "pnpm --filter english-learning-ui preview",
+    "lint": "pnpm --filter english-learning-ui lint",
+    "lint:fix": "pnpm --filter english-learning-ui lint -- --fix",
+    "test": "pnpm --filter english-learning-ui test",
+    "format": "pnpm --filter english-learning-ui format",
+    "format:check": "pnpm --filter english-learning-ui format:check",
+    "type-check": "pnpm --filter english-learning-ui type-check",
+    "clean": "pnpm --filter english-learning-ui clean",
+    "clean:all": "pnpm -r exec rm -rf node_modules dist && rm -rf node_modules",
+    "install:all": "pnpm install",
+    "reinstall": "pnpm clean:all && pnpm install",
+    "analyze": "pnpm --filter english-learning-ui analyze",
+    "update:deps": "pnpm -r update --latest",
+    "git:status": "git status",
+    "git:log": "git log --oneline --graph --decorate --all -20"
+  },
+  "keywords": [
+    "english-learning",
+    "education",
+    "react",
+    "vite",
+    "tailwindcss",
+    "daisyui",
+    "monorepo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ropean/English-Learning-Platform"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

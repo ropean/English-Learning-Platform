@@ -41,7 +41,7 @@
 ### 安装依赖
 
 ```bash
-cd english-learning-app
+cd english-learning-ui
 npm install
 ```
 
@@ -110,7 +110,7 @@ npm run preview
 ## 📂 项目结构
 
 ```
-english-learning-app/
+english-learning-ui/
 ├── src/
 │   ├── components/          # React 组件
 │   │   ├── Navbar.jsx      # 导航栏
