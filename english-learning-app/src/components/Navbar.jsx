@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getProgress } from '../utils/progressManager';
+import AuthButton from './AuthButton';
 
 const Navbar = ({ currentPage, onNavigate }) => {
   const [progress, setProgress] = useState(null);
@@ -94,6 +95,7 @@ const Navbar = ({ currentPage, onNavigate }) => {
             </div>
           </>
         )}
+        <AuthButton />
       </div>
     </div>
   );

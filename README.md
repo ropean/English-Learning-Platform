@@ -28,30 +28,68 @@
 - **连续学习**：记录学习连续天数
 - **进度追踪**：可视化学习统计
 
+### 🔐 用户系统与云端同步（新增）
+- **Google 登录**：使用 Google 账号一键登录
+- **云端同步**：学习进度自动同步到云端
+- **离线支持**：未登录时使用本地存储，登录后自动合并数据
+- **跨设备访问**：在任何设备上继续学习
+
+### 📦 可扩展词汇库（新增）
+- **IndexedDB 存储**：支持存储 10000+ 单词
+- **开源数据源**：从 Free Dictionary API 获取词汇
+- **自动抓取脚本**：一键获取和更新词汇数据
+- **离线词库**：本地存储，无需网络即可学习
+
 ## 🛠️ 技术栈
 
 - **前端框架**：React 18
 - **构建工具**：Vite
 - **UI 框架**：DaisyUI + Tailwind CSS v4
-- **数据存储**：LocalStorage（本地持久化）
+- **数据存储**：
+  - LocalStorage（基础进度）
+  - IndexedDB（大量词汇数据）
+  - Supabase PostgreSQL（云端同步）
+- **用户认证**：Supabase Auth（Google OAuth 2.0）
 - **语音合成**：Web Speech API
 
 ## 🚀 快速开始
 
-### 安装依赖
+### 方式一：离线模式（无需配置）
 
+1. 安装依赖：
 ```bash
 cd english-learning-app
 npm install
 ```
 
-### 开发模式
-
+2. 启动开发服务器：
 ```bash
 npm run dev
 ```
 
-访问 http://localhost:5173 查看应用
+3. 访问 http://localhost:5173 开始学习
+
+> 注意：离线模式下，数据仅保存在本地浏览器，不支持 Google 登录和云端同步。
+
+### 方式二：完整功能（包含云端同步）
+
+1. 完成上述步骤 1-2
+
+2. 配置 Supabase（支持 Google 登录和云端同步）：
+   - 查看详细配置指南：[SUPABASE_SETUP.md](english-learning-app/SUPABASE_SETUP.md)
+   - 创建 `.env` 文件并填入你的 Supabase 凭证
+
+3. 重启开发服务器，即可使用完整功能
+
+### 扩展词汇库（可选）
+
+运行数据抓取脚本，从开源 API 获取更多单词：
+
+```bash
+npm run fetch-vocabulary
+```
+
+> 这将从 Free Dictionary API 抓取词汇数据并保存到本地
 
 ### 构建生产版本
 

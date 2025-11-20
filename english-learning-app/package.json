@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fetch-vocabulary": "node scripts/fetchVocabulary.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.84.0",
+    "idb": "^8.0.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

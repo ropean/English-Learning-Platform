@@ -11,6 +11,45 @@ const Quiz = ({ level, onComplete }) => {
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
+    // 辅助函数
+    const shuffleArray = (array) => {
+      return [...array].sort(() => Math.random() - 0.5);
+    };
+
+    const generateMeaningOptions = (correctWord, allWords) => {
+      const options = [correctWord.meaning];
+      const otherWords = allWords.filter((w) => w.id !== correctWord.id);
+
+      while (options.length < 4 && otherWords.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherWords.length);
+        const meaning = otherWords[randomIndex].meaning;
+
+        if (!options.includes(meaning)) {
+          options.push(meaning);
+        }
+        otherWords.splice(randomIndex, 1);
+      }
+
+      return shuffleArray(options);
+    };
+
+    const generateWordOptions = (correctWord, allWords) => {
+      const options = [correctWord.word];
+      const otherWords = allWords.filter((w) => w.id !== correctWord.id);
+
+      while (options.length < 4 && otherWords.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherWords.length);
+        const word = otherWords[randomIndex].word;
+
+        if (!options.includes(word)) {
+          options.push(word);
+        }
+        otherWords.splice(randomIndex, 1);
+      }
+
+      return shuffleArray(options);
+    };
+
     // 生成5道题
     const words = getRandomWords(level, 5);
     const quizQuestions = words.map((word) => {
@@ -41,44 +80,6 @@ const Quiz = ({ level, onComplete }) => {
 
     setQuestions(quizQuestions);
   }, [level]);
-
-  const generateMeaningOptions = (correctWord, allWords) => {
-    const options = [correctWord.meaning];
-    const otherWords = allWords.filter((w) => w.id !== correctWord.id);
-
-    while (options.length < 4 && otherWords.length > 0) {
-      const randomIndex = Math.floor(Math.random() * otherWords.length);
-      const meaning = otherWords[randomIndex].meaning;
-
-      if (!options.includes(meaning)) {
-        options.push(meaning);
-      }
-      otherWords.splice(randomIndex, 1);
-    }
-
-    return shuffleArray(options);
-  };
-
-  const generateWordOptions = (correctWord, allWords) => {
-    const options = [correctWord.word];
-    const otherWords = allWords.filter((w) => w.id !== correctWord.id);
-
-    while (options.length < 4 && otherWords.length > 0) {
-      const randomIndex = Math.floor(Math.random() * otherWords.length);
-      const word = otherWords[randomIndex].word;
-
-      if (!options.includes(word)) {
-        options.push(word);
-      }
-      otherWords.splice(randomIndex, 1);
-    }
-
-    return shuffleArray(options);
-  };
-
-  const shuffleArray = (array) => {
-    return [...array].sort(() => Math.random() - 0.5);
-  };
 
   const handleAnswerSelect = (answer) => {
     if (showResult) return; // 已经显示结果，不能再选择
