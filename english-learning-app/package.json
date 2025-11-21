@@ -1,14 +1,15 @@
 {
   "name": "english-learning-app",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "dev": "vite",
+    "fetch-vocabulary": "node scripts/fetchVocabulary.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "fetch-vocabulary": "node scripts/fetchVocabulary.js"
+    "ship": "wrangler pages deploy dist --project-name english-learning-ui --branch main"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.84.0",
